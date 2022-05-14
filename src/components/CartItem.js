@@ -11,6 +11,15 @@ export class CartItem extends Component {
           <h4 className="item-price">${this.props.price}</h4>
           <button className="remove-btn">remove</button>
         </div>
+        <div>
+          <button className="amount-btn">
+            <ChevronUp />
+          </button>
+          <p className="amount">{this.props.amount}</p>
+          <button className="amount-btn">
+            <ChevronDown />
+          </button>
+        </div>
       </article>
     );
   }
