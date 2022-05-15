@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { ChevronDown, ChevronUp } from "../icons";
-import { removeItem } from "../features/cart/cartSlice";
+import { removeItem, increase, decrease } from "../features/cart/cartSlice";
 import { useDispatch } from "react-redux";
 
 function withDispatch(Component) {
@@ -26,7 +26,10 @@ export class CartItem extends Component {
           </button>
         </div>
         <div>
-          <button className="amount-btn">
+          <button
+            className="amount-btn"
+            onClick={() => this.props.dispatch(increase(this.props.id))}
+          >
             <ChevronUp />
           </button>
           <p className="amount">{this.props.amount}</p>
