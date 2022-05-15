@@ -33,7 +33,16 @@ export class CartItem extends Component {
             <ChevronUp />
           </button>
           <p className="amount">{this.props.amount}</p>
-          <button className="amount-btn">
+          <button
+            className="amount-btn"
+            onClick={() => {
+              if (this.props.amount === 1) {
+                this.props.dispatch(removeItem(this.props.id));
+                return;
+              }
+              this.props.dispatch(decrease(this.props.id));
+            }}
+          >
             <ChevronDown />
           </button>
         </div>

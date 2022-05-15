@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import CartItem from "./CartItem";
 import { useSelector, useDispatch } from "react-redux";
-import { clearCart } from "../features/cart/cartSlice";
+import { openModal } from "../features/modal/modalSlice";
 
 function withSelector(Component) {
   return (props) => {
@@ -45,12 +45,12 @@ class CartContainer extends Component {
           <hr />
           <div className="cart-total">
             <h4>
-              total <span>${this.props.total}</span>
+              total <span>${this.props.total.toFixed(2)}</span>
             </h4>
           </div>
           <button
             className="btn clear-btn"
-            onClick={() => this.props.dispatch(clearCart())}
+            onClick={() => this.props.dispatch(openModal())}
           >
             clear cart
           </button>
